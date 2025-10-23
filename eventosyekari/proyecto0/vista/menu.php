@@ -9,20 +9,20 @@
 
 <nav id="menu">
 <ul>
-    <li><a href="/eventosyekari//proyecto0/index.php">inicio</a></li>
-    <li><a href="/eventosyekari/proyecto0/vista/Administrador_listar.php"> listar administrador</a>
+    <li><a href="/eventosyekari/eventosyekari/proyecto0/index.php">inicio</a></li>
+    <li><a href="/eventosyekari/eventosyekari/proyecto0/vista/Administrador_listar.php"> listar administrador</a>
         <ul>
-           <li><a href="/eventosyekari/proyecto0/vista/InsertarAdministrador.php">Registrar administrador</a></li>
+           <li><a href="/eventosyekari/eventosyekari/proyecto0/vista/InsertarAdministrador.php">Registrar administrador</a></li>
     </ul>  
     </li>
 </ul>
 
 <ul>
 <li>
-        <a href="/eventosyekari/Proyecto0/vista/Agendaservicio_listar.php">servicios<br>(vercarrito)</a>
+        <a href="/eventosyekari/eventosyekari/proyecto0/vista/Agendaservicio_listar.php">servicios<br>(vercarrito)</a>
         <ul>
             <li>
-                <a href="/eventosyekari/Proyecto0/vista/Carrito.php"> asignar servicio <br>(agregarCarrito)</a>
+                <a href="/eventosyekari/eventosyekari/proyecto0/vista/Carrito.php"> asignar servicio <br>(agregarCarrito)</a>
             </li>
         </ul>
 </li>
@@ -30,9 +30,9 @@
 
     
 <ul>
-    <li><a href="/eventosyekari/proyecto0/vista/Cliente_listar.php"> listar cliente</a>
+    <li><a href="/eventosyekari/eventosyekari/proyecto0/vista/Cliente_listar.php"> listar cliente</a>
         <ul>
-           <li><a href="/eventosyekari/proyecto0/vista/InsertarCliente.php">Registrar Clientes</a></li>
+           <li><a href="/eventosyekari/eventosyekari/proyecto0/vista/InsertarCliente.php">Registrar Clientes</a></li>
     </ul>
     </li>
 </ul>

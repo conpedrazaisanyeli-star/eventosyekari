@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/Estilos.css">
+<link rel="stylesheet" href="/eventosyekari/eventosyekari/proyecto0/css/Estilos.css">
 <script>
     function confirmar(){
         var respuesta = confirm ("desea borrar su registro")
