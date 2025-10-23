@@ -1,0 +1,65 @@
+/* Animación de pulso para el header (cambio sutil de sombra) */
+@keyframes headerPulse {
+  0%,
+  100% {
+     box-shadow: 0 8px 32px rgba(255, 102, 102, 0.5);
+  }
+  50% {
+     box-shadow: 0 8px 32px rgba(102, 255, 102, 0.5);
+  }
+}
+
+/* Navegación dentro del header */
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* Botón de login destacado */
+.btn-login {
+  background: var(--color-orange) !important;
+  color: #fff !important;
+  padding: 0.7rem 1.5rem !important;
+  border: 3px solid var(--color-yellow);
+  box-shadow: 0 4px 15px rgba(255, 51, 0, 0.5);
+}
+
+.btn-login:hover {
+  background: var(--color-yellow) !important;
+  color: var(--color-orange) !important;
+  transform: scale(1.15) rotate(2deg) !important;
+}
+
+/* Marca / logo en el header */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--color-yellow);
+  box-shadow: 0 0 20px rgba(255, 255, 51, 0.8);
+}
