@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/Estilos.css">
     <title>Document</title>
 </head>
 <body>
@@ -11,7 +10,7 @@
     session_start();
     //el dato que quiera mostrar si ya esta logueado 
     if(!isset($_SESSION["Identificacion"])){
-        header("Location: /eventosyekari/proyecto0/vista/Login.php?m= Debe Iniciar sesion.");}
+        header("Location: /eventosyekari/eventosyekari/proyecto0/vista/Login.php?m= Debe Iniciar sesion.");}
     include_once("../vista/menu.php");
     
     ?>

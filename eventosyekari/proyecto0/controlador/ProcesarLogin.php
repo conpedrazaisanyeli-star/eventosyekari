@@ -25,12 +25,12 @@ echo $Identificacion;
          $_SESSION['Identificacion'] = $Administradores[0]["Identificacion"]; 
          $_SESSION ["Nombre"] = $Administradores[0]["Nombre"]; 
          $_SESSION['Apellido'] = $Administradores[0] ["Apellido"]; 
-         header ("Location: /eventosyekari/Proyecto0/index.php?m=Sesion iniciada"); 
+         header ("Location: /eventosyekari/eventosyekari/Proyecto0/vista/menu.php?m=Sesion iniciada"); 
          exit();     } 
     else { 
         echo $_SERVER["PHP_SELF"];
         echo "Datos incorrectos. <a href='../vista/login.php'>Volver</a>";
-         header ("Location: /eventosyekari/Proyecto0/vista/login.php?m=Datos incorrectos.");
+         header ("Location: /eventosyekari/eventosyekari/Proyecto0/vista/login.php?m=Datos incorrectos.");
          }
 
  ?>
