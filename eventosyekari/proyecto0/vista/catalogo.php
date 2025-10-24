@@ -15,6 +15,7 @@ try{
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/eventosyekari/eventosyekari/proyecto0/public/css/theme.css">
+  <link rel="stylesheet" href="/eventosyekari/eventosyekari/proyecto0/public/css/footer.css">
   <title>Catálogo de servicios - Eventos Yekari</title>
 </head>
 <body>

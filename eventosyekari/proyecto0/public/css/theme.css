@@ -18,6 +18,8 @@
   --color-blue-light: #0ccff0;
   --color-blue-sky: #0fff33;
   --color-green-light: #99ff99;
+  /* Verde de acción en formularios/admin distinto al fondo */
+  --color-green-cta: #1fa65a; /* más saturado y oscuro para botones/bordes */
   --color-cyan-light: #66ffff;
   --color-cyan-bright: #66ff00;
 }
@@ -930,3 +932,334 @@ body {
 .card-color-2 .details-text { color: rgba(0,0,0,0.9); text-shadow: none; }
 
 /* End added styles for catalog and cart */
+
+/* ------------------------------------------------------------------ */
+/* Admin panel styles and recommendations                               */
+/* Recomendaciones:                                                      */
+/* - Paleta: usar amarillo, azul, rojo y verde como colores dominantes.  */
+/* - Sidebar izquierdo con avatar circular (sin foto) usando sombra "cris" */
+/*   (efecto suave, inset + drop shadow) para simular relieve.           */
+/* - Contenido principal con banner de bienvenida y tarjetas (grid).     */
+/* - Mantener buen contraste y accesibilidad (texto oscuro sobre amarillo*/
+/*   y texto claro sobre fondos oscuros).                                  */
+/* - Añadir `redirect` en formularios para volver al mismo fragmento.     */
+/* ------------------------------------------------------------------ */
+
+.admin-dashboard {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 2rem;
+  min-height: calc(100vh - 120px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+}
+
+.admin-sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(255,255,255,0.02));
+  border-radius: 16px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  border: 3px solid rgba(255,255,255,0.04);
+}
+
+.admin-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06), rgba(0,0,0,0.08));
+  border: 4px solid rgba(255,255,255,0.06);
+  box-shadow: inset 0 -10px 30px rgba(0,0,0,0.25), 0 10px 30px rgba(0,0,0,0.18);
+  color: #fff;
+  font-weight: 800;
+  font-size: 2.2rem;
+}
+
+.admin-avatar .initials {
+  font-size: 2.2rem;
+  color: var(--color-yellow);
+  text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+.admin-profile-name {
+  margin-top: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+}
+
+.admin-profile-role {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.25rem;
+}
+
+.admin-nav {
+  margin-top: 1.4rem;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.admin-nav a {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.18s ease;
+  background: transparent;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+  background: rgba(255,255,255,0.05);
+  transform: translateX(6px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+}
+
+.admin-main {
+  flex: 1;
+  padding: 0.5rem 1rem;
+}
+
+.welcome-banner {
+  background: linear-gradient(90deg, var(--color-yellow), var(--color-orange));
+  color: #111;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 800;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+  margin-bottom: 1.25rem;
+}
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.admin-card {
+  padding: 1.15rem;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border: 3px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  color: #fff;
+}
+
+.admin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.18);
+}
+
+.admin-card .card-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 0.6rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+.card-pedidos .card-icon { background: linear-gradient(180deg, var(--color-blue), var(--color-blue-light)); }
+.card-clientes .card-icon { background: linear-gradient(180deg, var(--color-cyan), var(--color-cyan-light)); }
+.card-inventario .card-icon { background: linear-gradient(180deg, var(--color-green), var(--color-green-light)); }
+.card-modificar .card-icon { background: linear-gradient(180deg, var(--color-orange), var(--color-orange-bright)); }
+.card-logout .card-icon { background: linear-gradient(180deg, var(--color-red), rgba(255,102,102,0.9)); }
+
+.admin-card h3 { font-size: 1rem; margin-bottom: 0.4rem; font-weight: 800; }
+.admin-card p { font-size: 0.9rem; color: rgba(255,255,255,0.9); }
+
+/* Responsive: en pantallas pequeñas el sidebar pasa arriba */
+@media (max-width: 900px) {
+  .admin-dashboard { flex-direction: column; padding: 1rem; }
+  .admin-sidebar { width: 100%; flex-direction: row; gap: 1rem; align-items: center; padding: 1rem; }
+  .admin-nav { flex-direction: row; overflow-x: auto; gap: 0.5rem; }
+  .admin-profile-name { display: none; }
+}
+
+/* Small extra: tarjetas grandes dentro del dashboard para la vista principal */
+.admin-panel-large {
+  margin-top: 1rem;
+}
+
+/* Fin estilos admin */
+
+/* ------------------------------------------------------------------ */
+/* Estilos para el contenido cargado en el panel (tablas, formularios)  */
+/* Estos estilos se aplican dentro de #admin-content para mantener scope. */
+/* ------------------------------------------------------------------ */
+
+#admin-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#admin-content th, #admin-content td {
+  padding: 0.9rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+#admin-content th {
+  background: linear-gradient(90deg, rgba(0,0,0,0.12), rgba(255,255,255,0.02));
+  color: #fff;
+  font-weight: 800;
+}
+
+#admin-content tr:nth-child(even) td {
+  background: rgba(0,0,0,0.03);
+}
+
+#admin-content .admin-actions { display:flex; gap:0.6rem; align-items:center; }
+
+#admin-content .admin-actions .btn-primary, #admin-content .admin-actions .btn-danger {
+  padding: 0.45rem 0.8rem; font-size:0.95rem;
+}
+
+/* Forms inside admin content */
+#admin-content form {
+  background: rgba(0,0,0,0.02);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.03);
+  margin-bottom: 1rem;
+}
+
+#admin-content label { display:block; margin-bottom:0.45rem; color: #fff; font-weight:700; }
+#admin-content input[type="text"], #admin-content input[type="email"], #admin-content input[type="date"], #admin-content input[type="number"], #admin-content textarea, #admin-content select {
+  width:100%; padding:0.6rem 0.8rem; border-radius:8px; border:2px solid rgba(0,0,0,0.08); background: rgba(255,255,255,0.02); color:#fff; margin-bottom:0.6rem;
+}
+
+#admin-content input[type="submit"], #admin-content .btn-primary, #admin-content .btn-danger {
+  cursor:pointer;
+}
+
+/* Message box for feedback (m=...) */
+.admin-message {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  color: #111;
+  background: linear-gradient(90deg, rgba(255,255,51,0.95), rgba(255,102,0,0.95));
+}
+
+/* Make admin-card anchors look consistent */
+a.admin-card { text-decoration: none; display: block; }
+a.admin-card .card-icon { box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
+a.admin-card:hover { text-decoration: none; }
+
+/* Títulos y tipografía dentro del panel: usar gradiente similar a las tarjetas */
+#admin-content h1, #admin-content h2, #admin-content h3 {
+  font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  background: linear-gradient(90deg, var(--color-yellow), var(--color-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botones bonitos para formularios en admin */
+.admin-btn{
+  display:inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight:800;
+  border: 3px solid transparent;
+  transition: all 0.18s ease;
+}
+.admin-btn:hover{ transform: translateY(-3px); }
+
+.admin-btn-primary{
+  background: linear-gradient(180deg, var(--color-cyan) 0%, var(--color-blue-light) 100%);
+  color: #012;
+  border-color: var(--color-green-cta);
+  box-shadow: 0 8px 30px rgba(31,166,90,0.12);
+}
+
+.admin-btn-accent{
+  background: linear-gradient(90deg, var(--color-orange), var(--color-orange-bright));
+  color: #111;
+  border-color: var(--color-yellow);
+  box-shadow: 0 8px 30px rgba(255,102,0,0.18);
+}
+
+.admin-btn-danger{
+  background: linear-gradient(180deg, #ff5b5b 0%, #ff2121 100%);
+  color: #fff;
+  border-color: var(--color-red);
+  box-shadow: 0 8px 30px rgba(255,0,0,0.12);
+}
+
+/* Aplicar por defecto a los submit en admin content si no tienen clase */
+/* Estilo por defecto para submit dentro del panel admin: bordes y acento en verde CTA */
+#admin-content input[type="submit"]{
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight:800;
+  border: 3px solid var(--color-green-cta);
+  background: linear-gradient(180deg, var(--color-cyan) 0%, var(--color-blue-light) 100%);
+  color: #012;
+}
+
+/* Animaciones y estilo para tarjetas de pedido (list_orders) */
+.order-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 0.75rem 0;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 420ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+/* Stagger usando nth-child para darle ritmo a la entrada */
+.order-card:nth-child(1){ animation-delay: 0.04s; }
+.order-card:nth-child(2){ animation-delay: 0.08s; }
+.order-card:nth-child(3){ animation-delay: 0.12s; }
+.order-card:nth-child(4){ animation-delay: 0.16s; }
+.order-card:nth-child(5){ animation-delay: 0.20s; }
+.order-card:nth-child(6){ animation-delay: 0.24s; }
+.order-card:nth-child(7){ animation-delay: 0.28s; }
+.order-card:nth-child(8){ animation-delay: 0.32s; }
+.order-card:nth-child(9){ animation-delay: 0.36s; }
+.order-card:nth-child(10){ animation-delay: 0.40s; }
+
+@keyframes fadeUp{
+  from { opacity: 0; transform: translateY(12px) scale(0.995); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* focus accesible */
+#admin-content input:focus, #admin-content select:focus, #admin-content textarea:focus {
+  outline: 3px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}

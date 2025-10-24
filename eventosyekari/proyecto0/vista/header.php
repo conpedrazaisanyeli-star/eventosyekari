@@ -5,6 +5,12 @@ $cart_count = 0;
 if (isset($_SESSION['carrito']) && is_array($_SESSION['carrito'])) {
     foreach($_SESSION['carrito'] as $it) $cart_count += isset($it['cantidad']) ? intval($it['cantidad']) : 0;
 }
+
+// Mostrar el enlace de carrito sólo cuando estemos en la página de catálogo.
+// Usamos REQUEST_URI para detectar 'catalogo' en la ruta. Si necesitas otra
+// condición (por ejemplo un parámetro distinto), puedo ajustarlo.
+$request_uri = $_SERVER['REQUEST_URI'] ?? '';
+$show_cart = (strpos($request_uri, 'catalogo') !== false) || (strpos($request_uri, '/vista/catalogo') !== false);
 ?>
 <header class="site-header">
     <!-- Barra de navegación principal -->
@@ -14,7 +20,9 @@ if (isset($_SESSION['carrito']) && is_array($_SESSION['carrito'])) {
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/Home.php#inicio">Inicio</a>
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/nuestraHistoria.php">Nuestra Historia</a>
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/catalogo.php">Servicios</a>
-        <a href="/eventosyekari/eventosyekari/proyecto0/controlador/CarritoControlador.php?accion=listar">Carrito (<?php echo $cart_count; ?>)</a>
+        <?php if($show_cart): ?>
+            <a href="/eventosyekari/eventosyekari/proyecto0/controlador/CarritoControlador.php?accion=listar">Carrito (<?php echo $cart_count; ?>)</a>
+        <?php endif; ?>
         <a class="btn-login" href="/eventosyekari/eventosyekari/proyecto0/vista/login.php">Iniciar sesión</a>
     </nav>
 
