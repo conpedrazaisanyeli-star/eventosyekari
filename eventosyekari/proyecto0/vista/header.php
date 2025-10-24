@@ -9,8 +9,6 @@
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/Home.php#inicio">Inicio</a>
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/nuestraHistoria.php">Nuestra Historia</a>
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/Home.php#servicios">Servicios</a>
-    <a href="/eventosyekari/eventosyekari/proyecto0/vista/Home.php#servicios">Catálogo</a>
-        <a href="/eventosyekari/eventosyekari/proyecto0/vista/MiCarrito.php">Carrito</a>
         <a class="btn-login" href="/eventosyekari/eventosyekari/proyecto0/vista/login.php">Iniciar sesión</a>
     </nav>
 
