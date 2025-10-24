@@ -41,7 +41,7 @@
                 <p>Entretenimiento infantil.</p>
             </div>
         </section>
-
+        
         <!-- Sección de Servicios: lista de servicios ofrecidos -->
         <section id="servicios" class="section container">
             <h2 class="section-title">Nuestros Servicios</h2>
@@ -49,7 +49,7 @@
             <!-- Grid de tarjetas de servicio; role="list" para accesibilidad -->
             <div class="services-grid-new" role="list">
                 <!-- Service Card 1: estructura reutilizable -->
-                <div class="service-card-expandable card-color-1" role="listitem">
+                <div class="service-card-expandable card-color-1" role="listitem" aria-expanded="false">
                     <!-- Cabecera de la tarjeta: imagen, título, duración, precio y botón -->
                     <div class="service-header">
                         <img src="/eventosyekari/eventosyekari/proyecto0/public/img/Brinkis_5x3.jpg" alt="Brinkis 5x3" class="service-image">
@@ -59,7 +59,7 @@
                         <!-- Precio mostrado -->
                         <p class="service-price">$130.000</p>
                         <!-- Botón para alternar detalles (JS controla la apertura/cierre) -->
-                        <button class="toggle-details" aria-label="Ver más detalles">
+                        <button class="toggle-details" aria-label="Ver más detalles" aria-expanded="false">
                             <span class="toggle-icon">+</span>
                         </button>
                     </div>
@@ -79,13 +79,13 @@
                 </div>
 
                 <!-- Service Card 2: otro ejemplo, mantener la misma estructura para consistencia -->
-                <div class="service-card-expandable card-color-2" role="listitem">
+                <div class="service-card-expandable card-color-2" role="listitem" aria-expanded="false">
                     <div class="service-header">
                         <img src="/eventosyekari/eventosyekari/proyecto0/public/img/Brinkis_5x3_1.jpg" alt="BRINKIS 5x3" class="service-image">
                         <h3>BRINKIS 5x3</h3>
                         <p class="service-duration">3 HORAS</p>
                         <p class="service-price">$130.000</p>
-                        <button class="toggle-details" aria-label="Ver más detalles">
+                        <button class="toggle-details" aria-label="Ver más detalles" aria-expanded="false">
                             <span class="toggle-icon">+</span>
                         </button>
                     </div>
@@ -103,13 +103,13 @@
                 </div>
 
                 <!-- Service Card 3 -->
-                <div class="service-card-expandable card-color-3" role="listitem">
+                <div class="service-card-expandable card-color-3" role="listitem" aria-expanded="false">
                     <div class="service-header">
                         <img src="/eventosyekari/eventosyekari/proyecto0/public/img/Brinkis_5x6.jpg" alt="BRINKIS 5x6" class="service-image">
                         <h3>BRINKIS 5x6</h3>
                         <p class="service-duration">3 HORAS</p>
                         <p class="service-price">$150.000</p>
-                        <button class="toggle-details" aria-label="Ver más detalles">
+                        <button class="toggle-details" aria-label="Ver más detalles" aria-expanded="false">
                             <span class="toggle-icon">+</span>
                         </button>
                     </div>
