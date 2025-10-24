@@ -2,7 +2,7 @@
 session_start();
 //si ya esta la sesion creada lo que reenvia al index
 if(isset($_SESSION["Identificacion"])){
-    header ("location:/eventosyekari/eventosyekari/proyecto0/vista/menu.php");
+    header ("location:/eventosyekari/eventosyekari/proyecto0/vista/dashboard_admin.php");
     exit();
 }
 ?>

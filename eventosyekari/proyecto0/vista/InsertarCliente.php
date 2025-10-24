@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    include_once("../vista/menu.php");
+    
     ?>
     <br>
     <h1>REGISTRAR CLIENTE</h1>

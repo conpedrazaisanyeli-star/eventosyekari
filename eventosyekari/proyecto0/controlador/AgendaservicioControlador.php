@@ -2,7 +2,6 @@
 
 //namespace Controller;
 //use Modelo\Agendaservicio;
-require_once("../vista/menu.php");
 require_once("../modelo/Agendaservicio.php");
 //Definicion de clase AgendaservicioControlador
 

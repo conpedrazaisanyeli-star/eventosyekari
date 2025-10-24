@@ -11,7 +11,6 @@
     //el dato que quiera mostrar si ya esta logueado 
     if(!isset($_SESSION["Identificacion"])){
         header("Location: /eventosyekari/eventosyekari/proyecto0/vista/Login.php?m= Debe Iniciar sesion.");}
-    include_once("../vista/menu.php");
     
     ?>
     <br>

@@ -10,7 +10,6 @@
 
 <?php
 session_start();
-require_once("../vista/menu.php"); 
 require_once('../controlador/ClienteControlador.php');
 
 $ClienteControlador = new ClienteControlador();
