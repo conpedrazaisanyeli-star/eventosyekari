@@ -1,15 +1,11 @@
-/* Eventos Yekari - Tema Vivido y Extravagante
-    Comentarios: versión comentada en español para facilitar mantenimiento.
-*/
+/* Eventos Yekari - Tema Vivido y Extravagante */
 
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Variables globales de color (paleta vívida) */
 :root {
   /* Colores principales vividos */
   --color-red: #ff6666;
@@ -26,7 +22,6 @@
   --color-cyan-bright: #66ff00;
 }
 
-/* Estilos globales de cuerpo */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -35,11 +30,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Header principal (barra superior fija con animación) */
+/* Header con colores vividos */
 .site-header {
   background: var(--color-red);
   padding: 1rem 2rem;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -49,7 +45,70 @@ body {
   animation: headerPulse 3s ease-in-out infinite;
 }
 
-/* Sección Hero: contenedor y capas (fondo, overlay, contenido) */
+@keyframes headerPulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 32px rgba(255, 102, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(102, 255, 102, 0.5);
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.btn-login {
+  background: var(--color-orange) !important;
+  color: #fff !important;
+  padding: 0.7rem 1.5rem !important;
+  border: 3px solid var(--color-yellow);
+  box-shadow: 0 4px 15px rgba(255, 51, 0, 0.5);
+}
+
+.btn-login:hover {
+  background: var(--color-yellow) !important;
+  color: var(--color-orange) !important;
+  transform: scale(1.15) rotate(2deg) !important;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--color-yellow);
+  box-shadow: 0 0 20px rgba(255, 255, 51, 0.8);
+}
+
+/* Hero Section - Extravagante */
+/* Fixed hero z-index and positioning for carousel */
 .hero {
   position: relative;
   height: 100vh;
@@ -59,7 +118,6 @@ body {
   overflow: hidden;
 }
 
-/* Fondo del hero (puede usarse para carousel de imágenes) */
 .hero-bg {
   position: absolute;
   top: 0;
@@ -72,7 +130,6 @@ body {
   z-index: 1;
 }
 
-/* Capa overlay para tint y animación ligera */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -87,14 +144,13 @@ body {
 @keyframes overlayShift {
   0%,
   100% {
-     opacity: 0.6;
+    opacity: 0.6;
   }
   50% {
-     opacity: 0.8;
+    opacity: 0.8;
   }
 }
 
-/* Contenido principal del hero (texto y CTA) */
 .hero-content {
   position: relative;
   z-index: 10;
@@ -115,14 +171,13 @@ body {
   animation: titleGlow 2s ease-in-out infinite;
 }
 
-/* Glow del título para dar viveza */
 @keyframes titleGlow {
   0%,
   100% {
-     filter: drop-shadow(0 0 10px var(--color-yellow));
+    filter: drop-shadow(0 0 10px var(--color-yellow));
   }
   50% {
-     filter: drop-shadow(0 0 30px var(--color-red));
+    filter: drop-shadow(0 0 30px var(--color-red));
   }
 }
 
@@ -132,7 +187,6 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Botón CTA grande y llamativo */
 .cta {
   display: inline-block;
   background: var(--color-orange);
@@ -155,7 +209,7 @@ body {
   color: #000;
 }
 
-/* Secciones generales: contenedores y tarjeta principal */
+/* Sections */
 .section {
   padding: 4rem 2rem;
   margin: 2rem 0;
@@ -171,7 +225,6 @@ body {
   border: 5px solid var(--color-cyan);
 }
 
-/* Títulos de sección con animación sutil */
 .section-title {
   font-size: 3rem;
   text-align: center;
@@ -184,10 +237,10 @@ body {
 @keyframes titleBounce {
   0%,
   100% {
-     transform: translateY(0);
+    transform: translateY(0);
   }
   50% {
-     transform: translateY(-10px);
+    transform: translateY(-10px);
   }
 }
 
@@ -198,7 +251,7 @@ body {
   line-height: 1.8;
 }
 
-/* Grid de servicios clásico (tarjetas coloridas) */
+/* Services Grid - Colores Extravagantes */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -215,7 +268,6 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Variantes de color para las cards */
 .card-1 {
   background: var(--color-red);
   border-color: var(--color-yellow);
@@ -245,14 +297,13 @@ body {
   animation: iconBounce 2s ease-in-out infinite;
 }
 
-/* Ícono con movimiento para más dinamismo */
 @keyframes iconBounce {
   0%,
   100% {
-     transform: translateY(0);
+    transform: translateY(0);
   }
   50% {
-     transform: translateY(-15px);
+    transform: translateY(-15px);
   }
 }
 
@@ -267,7 +318,7 @@ body {
   line-height: 1.6;
 }
 
-/* Historias / contenido textual (alineación y legibilidad) */
+/* Added styling for history content */
 .history-content {
   text-align: left;
   line-height: 1.9;
@@ -280,7 +331,7 @@ body {
   text-align: justify;
 }
 
-/* Testimonios: tarjetas y estilo de interacción */
+/* Testimonials */
 .testimonials {
   padding: 4rem 2rem;
   background: var(--color-cyan-light);
@@ -322,7 +373,6 @@ body {
   box-shadow: 0 0 20px rgba(102, 255, 102, 0.6);
 }
 
-/* Meta (nombre/rol) dentro del testimonio */
 .meta {
   margin-bottom: 0.5rem;
 }
@@ -343,7 +393,7 @@ body {
   font-style: italic;
 }
 
-/* Botón flotante de WhatsApp (fijado en esquina) */
+/* WhatsApp Float - Vivido */
 .whatsapp-float {
   position: fixed;
   bottom: 30px;
@@ -363,14 +413,13 @@ body {
   animation: whatsappPulse 2s ease-in-out infinite;
 }
 
-/* Pulso para llamar la atención sobre el botón */
 @keyframes whatsappPulse {
   0%,
   100% {
-     transform: scale(1);
+    transform: scale(1);
   }
   50% {
-     transform: scale(1.15);
+    transform: scale(1.15);
   }
 }
 
@@ -384,42 +433,42 @@ body {
   height: 40px;
 }
 
-/* Responsive principal: ajustes para pantallas pequeñas */
+/* Responsive */
 @media (max-width: 768px) {
   .site-header {
-     flex-direction: column;
-     gap: 1rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .nav {
-     flex-wrap: wrap;
-     justify-content: center;
-     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .hero-content h1 {
-     font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .section-title {
-     font-size: 2rem;
+    font-size: 2rem;
   }
 
   .services-grid {
-     grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .t-grid {
-     grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .testimonial {
-     flex-direction: column;
-     text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 }
 
-/* Nuevas tarjetas de servicio expandibles (estructura y comportamiento) */
+/* New expandable service cards styling */
 .services-grid-new {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -435,7 +484,38 @@ body {
   border: 4px solid;
 }
 
-/* Colores para variantes expandibles (coinciden con cards anteriores) */
+.card-color-1 {
+  background: var(--color-red);
+  border-color: var(--color-yellow);
+}
+
+.card-color-2 {
+  .testimonial {
+   flex-direction: column;
+   text-align: center;
+  }
+}
+
+/* New expandable service cards styling
+  Estas tarjetas permiten mostrar/ocultar detalles mediante clases (.active)
+  La técnica usa max-height con transición para una animación sencilla.
+*/
+.services-grid-new {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card-expandable {
+  border-radius: 20px;
+  overflow: hidden; /* Importante para ocultar contenido que se colapsa */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 4px solid;
+}
+
+/* Variantes de color para tarjetas expandibles */
 .card-color-1 {
   background: var(--color-red);
   border-color: var(--color-yellow);
@@ -451,13 +531,18 @@ body {
   border-color: var(--color-green);
 }
 
-/* Interacción al pasar el mouse */
+/* Added card-color-4 for the 4th product */
+.card-color-4 {
+  background: var(--color-cyan);
+  border-color: var(--color-orange);
+}
+
+/* Hover simple que eleva la tarjeta */
 .service-card-expandable:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Encabezado de tarjeta: título, imagen y duración/precio */
 .service-header {
   padding: 1.5rem;
   text-align: center;
@@ -480,7 +565,7 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Ajustes de contraste para variantes amarillas (texto oscuro) */
+/* Ajustes de color para variantes que usan fondo claro */
 .card-color-2 .service-header h3 {
   color: #000;
 }
@@ -492,6 +577,7 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Ajuste para variante de fondo claro */
 .card-color-2 .service-duration {
   color: rgba(0, 0, 0, 0.8);
 }
@@ -504,11 +590,12 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Color diferente para la variante 2 */
 .card-color-2 .service-price {
   color: var(--color-red);
 }
 
-/* Toggle para mostrar/ocultar detalles (círculo interactivo) */
+/* Botón circular que alterna los detalles (se controla con JS añadiendo .active) */
 .toggle-details {
   background: rgba(255, 255, 255, 0.3);
   border: 3px solid #fff;
@@ -526,38 +613,44 @@ body {
   font-weight: 700;
 }
 
+/* Variant for dark border on light cards */
 .card-color-2 .toggle-details {
   color: #000;
   border-color: #000;
 }
 
+/* Efecto hover del toggle */
 .toggle-details:hover {
   transform: scale(1.2) rotate(90deg);
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* Icono de toggle gira cuando está activo */
+/* Rotación del icono cuando el botón tiene la clase .active */
 .toggle-icon {
   transition: transform 0.3s ease;
 }
 
 .toggle-details.active .toggle-icon {
-  transform: rotate(45deg);
+  transform: rotate(45deg); /* Indica cambio de estado (cerrar/abrir) */
 }
 
-/* Contenido oculto / expandible: transición por max-height */
+/* Contenedor de detalles que se expande/colapsa */
+/* Observación: la transición con max-height es una técnica común, max-height
+  debe ser mayor que la altura esperada del contenido cuando está abierto. */
 .service-details {
-  max-height: 0;
+  max-height: 0; /* Oculto por defecto */
   overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.5s ease;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 0 1.5rem;
+  transition: max-height 0.45s cubic-bezier(.2,.9,.2,1), padding 0.35s ease;
+  /* Dejar transparente para que la tarjeta conserve su color al expandir */
+  background: transparent;
+  padding: 0 1.5rem; /* Padding colapsado hasta activación */
+  color: inherit; /* usar el color de la tarjeta */
 }
 
-/* Clase activa aplicada por JS para expandir contenido */
+/* Clase aplicada (desde JS) para mostrar contenido */
 .service-details.active {
-  max-height: 500px;
-  padding: 1.5rem;
+  max-height: 500px; /* Suficiente para contenido típico; ajustar si es necesario */
+  padding: 1.25rem 1.5rem; /* Se restaura el padding al expandir */
 }
 
 .service-details ul {
@@ -580,52 +673,260 @@ body {
   color: var(--color-red);
 }
 
-/* Responsive para las tarjetas expandibles */
+/* Responsive para new service cards: 3 columnas -> 2 -> 1 según ancho */
 @media (max-width: 1024px) {
   .services-grid-new {
-     grid-template-columns: repeat(2, 1fr);
+   grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .site-header {
-     flex-direction: column;
-     gap: 1rem;
+   flex-direction: column;
+   gap: 1rem;
   }
 
   .nav {
-     flex-wrap: wrap;
-     justify-content: center;
-     gap: 1rem;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 1rem;
   }
 
   .hero-content h1 {
-     font-size: 2.5rem;
+   font-size: 2.5rem;
   }
 
   .section-title {
-     font-size: 2rem;
+   font-size: 2rem;
   }
 
   .services-grid {
-     grid-template-columns: 1fr;
+   grid-template-columns: 1fr;
   }
 
   .t-grid {
-     grid-template-columns: 1fr;
+   grid-template-columns: 1fr;
   }
 
   .testimonial {
-     flex-direction: column;
-     text-align: center;
+   flex-direction: column;
+   text-align: center;
   }
 
   .services-grid-new {
-     grid-template-columns: 1fr;
+   grid-template-columns: 1fr; /* Pasa a una columna en móviles */
   }
 }
 
-/* Fin del archivo - Comentarios: 
-    - Use las clases .toggle-details.active y .service-details.active desde JS para controlar la expansión.
-    - Mantener las variables :root facilita cambios de paleta.
-*/
+/* Fin del tema vivido y extravagante */
+/* Nota: las interacciones (toggle .active, cambio de fondo hero-bg, etc.)
+  deben controlarse desde JavaScript añadiendo/removiendo clases. */
+
+/* ------------------------------------------------------------------ */
+/* Estilos específicos para el catálogo (vista/catalogo.php) y carrito */
+/* ------------------------------------------------------------------ */
+
+/* Catalogo grid - coincide con la paleta y los componentes previos */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tarjeta {
+  padding: 1.6rem;
+  border-radius: 20px;
+  text-align: left;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 4px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+/* Ciclo de colores por tarjeta para un aspecto vibrante */
+.tarjeta:nth-child(3n+1) {
+  background: linear-gradient(135deg, var(--color-red), rgba(255,102,102,0.9));
+  border-color: var(--color-yellow);
+}
+
+.tarjeta:nth-child(3n+2) {
+  background: linear-gradient(135deg, var(--color-yellow), rgba(255,255,51,0.95));
+  color: #111;
+  border-color: var(--color-blue);
+}
+
+.tarjeta:nth-child(3n+3) {
+  background: linear-gradient(135deg, var(--color-blue), rgba(9,159,240,0.95));
+  border-color: var(--color-green);
+}
+
+.tarjeta h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.tarjeta p { color: inherit; opacity: 0.95; }
+
+.tarjeta .meta {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1rem 0;
+  color: rgba(255,255,255,0.95);
+}
+
+.tarjeta form {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tarjeta input[type="number"]{ 
+  width: 70px;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  color: inherit;
+  font-weight: 700;
+}
+
+.btn-agregar {
+  background: linear-gradient(180deg, var(--color-orange) 0%, var(--color-orange-bright) 100%);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 3px solid var(--color-yellow);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(255,102,0,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-agregar:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 35px rgba(255,102,0,0.45); }
+
+/* Carrito: estructura limpia y colores coherentes */
+.cart-wrapper {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: rgba(255,255,255,0.98);
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  border: 5px solid var(--color-cyan);
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.cart-table th, .cart-table td {
+  padding: 0.9rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.cart-item-title { font-weight: 800; color: var(--color-red); }
+.cart-item-sub { color: #333; opacity: 0.85; }
+
+.cart-actions { display:flex; gap:1rem; align-items:center; }
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--color-cyan) 0%, var(--color-blue-light) 100%);
+  color: #002;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 3px solid var(--color-green-light);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(12,207,240,0.2);
+}
+
+.btn-danger {
+  background: linear-gradient(180deg, #ff5b5b 0%, #ff2121 100%);
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  border: 3px solid var(--color-yellow);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.cart-summary {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.cart-total {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-blue);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.12);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .catalogo { grid-template-columns: 1fr; }
+  .tarjeta { padding: 1.2rem; }
+  .cart-wrapper { padding: 1rem; }
+  .cart-table th, .cart-table td { padding: 0.6rem 0.4rem; }
+}
+
+/* Tipografía mejorada para detalles (títulos y texto desplegable) */
+.details-title {
+  font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--color-yellow), var(--color-orange));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.details-text {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-size: 0.98rem;
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.98;
+  transform-origin: top left;
+  animation: fadeSlideIn 320ms ease;
+}
+
+@keyframes fadeSlideIn {
+  from { transform: translateY(6px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Ajustes de contraste para tarjetas claras */
+.card-color-2 .details-title {
+  background: linear-gradient(90deg, var(--color-orange), var(--color-red));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card-color-2 .details-text { color: rgba(0,0,0,0.9); text-shadow: none; }
+
+/* End added styles for catalog and cart */

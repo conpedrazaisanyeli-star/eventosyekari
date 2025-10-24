@@ -1,5 +1,10 @@
 <?php
 // Header reutilizable para el sitio - incluye navegación y marca
+if (session_status() == PHP_SESSION_NONE) session_start();
+$cart_count = 0;
+if (isset($_SESSION['carrito']) && is_array($_SESSION['carrito'])) {
+    foreach($_SESSION['carrito'] as $it) $cart_count += isset($it['cantidad']) ? intval($it['cantidad']) : 0;
+}
 ?>
 <header class="site-header">
     <!-- Barra de navegación principal -->
@@ -8,7 +13,8 @@
     <nav class="nav" aria-label="Menú principal">
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/Home.php#inicio">Inicio</a>
         <a href="/eventosyekari/eventosyekari/proyecto0/vista/nuestraHistoria.php">Nuestra Historia</a>
-        <a href="/eventosyekari/eventosyekari/proyecto0/vista/Home.php#servicios">Servicios</a>
+        <a href="/eventosyekari/eventosyekari/proyecto0/vista/catalogo.php">Servicios</a>
+        <a href="/eventosyekari/eventosyekari/proyecto0/controlador/CarritoControlador.php?accion=listar">Carrito (<?php echo $cart_count; ?>)</a>
         <a class="btn-login" href="/eventosyekari/eventosyekari/proyecto0/vista/login.php">Iniciar sesión</a>
     </nav>
 

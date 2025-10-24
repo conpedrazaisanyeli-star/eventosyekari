@@ -129,7 +129,7 @@
 
             <!-- Enlace a catálogo completo de servicios -->
             <div class="more-services" style="text-align:center;margin-top:20px;">
-                 <a href="/eventosyekari/eventosyekari/proyecto0/vista/Catalogo.php" class="cta">Ver servicios</a>
+                 <a href="/eventosyekari/eventosyekari/proyecto0/vista/catalogo.php" class="cta">Ver servicios</a>
             </div>
         </section>
 
