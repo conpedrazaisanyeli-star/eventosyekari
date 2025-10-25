@@ -35,17 +35,20 @@ class Administrador {
     // Seleccionar Administrador
     public function read($Identificacion)
     {
-     if($Identificacion!=NULL){
-         $sql="select * from Administrador where Identificacion=".$Identificacion;
+        if($Identificacion != NULL){
+            // Usar prepared statement con parámetro para evitar problemas de tipo/case o inyección
+            $sql = "SELECT * FROM Administrador WHERE Identificacion = :Identificacion";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bindParam(':Identificacion', $Identificacion);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } else {
+            $sql = "SELECT * FROM Administrador";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
-            else{
-               $sql="select * from Administrador";
-            }
-        
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        }
+    }
     
 
     // Actualizar Administrador
