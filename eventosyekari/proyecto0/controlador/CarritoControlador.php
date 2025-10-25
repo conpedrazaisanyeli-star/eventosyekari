@@ -59,13 +59,27 @@ switch($accion){
             header('Location: ../vista/Carrito_listar.php?m=vacío');
             exit;
         }
+        // Validación server-side: todos los campos del formulario deben estar presentes
+        $cliente_identificacion = isset($_POST['cliente_identificacion']) ? trim($_POST['cliente_identificacion']) : '';
+        $direccion = isset($_POST['direccion']) ? trim($_POST['direccion']) : '';
+        $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
+        $fecha_evento = isset($_POST['fecha']) ? trim($_POST['fecha']) : '';
+        $hora_evento = isset($_POST['hora']) ? trim($_POST['hora']) : '';
+
+        if ($cliente_identificacion === '' || $direccion === '' || $telefono === '' || $fecha_evento === '' || $hora_evento === '') {
+            // Falta algún campo obligatorio: redirigir y mostrar mensaje
+            header('Location: ../vista/Carrito_listar.php?m=Por+favor+complete+todos+los+campos');
+            exit;
+        }
+
         try{
             $conn->beginTransaction();
             $total = 0;
             foreach($_SESSION['carrito'] as $it) $total += $it['precio'] * $it['cantidad'];
-            $cliente_identificacion = isset($_POST['cliente_identificacion']) ? $_POST['cliente_identificacion'] : null;
-            $stmt = $conn->prepare("INSERT INTO ordenes (cliente_identificacion, total) VALUES (?, ?)");
-            $stmt->execute([$cliente_identificacion, $total]);
+
+            // Insertar orden con los campos validados
+            $stmt = $conn->prepare("INSERT INTO ordenes (cliente_identificacion, total, direccion, telefono, fecha_evento, hora_evento) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->execute([$cliente_identificacion, $total, $direccion, $telefono, $fecha_evento, $hora_evento]);
             $orden_id = $conn->lastInsertId();
             $stmtItem = $conn->prepare("INSERT INTO orden_items (orden_id, servicio_id, cantidad, precio_unitario) VALUES (?, ?, ?, ?)");
             foreach($_SESSION['carrito'] as $it){

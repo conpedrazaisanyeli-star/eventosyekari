@@ -174,7 +174,7 @@
     </main>
 
     <!-- WhatsApp flotante: enlace directo para contactar por WhatsApp -->
-    <a href="https://wa.me/573162402680?text=Hola,%20me%20gustaría%20información%20sobre%20sus%20servicios" 
+    <a href="https://wa.me/573232495465?text=Hola,%20me%20gustaría%20información%20sobre%20sus%20servicios" 
        class="whatsapp-float" 
        target="_blank"
        aria-label="Contactar por WhatsApp">

@@ -66,10 +66,18 @@ foreach($carrito as $it) $total += $it['precio'] * $it['cantidad'];
             </div>
         </div>
 
-        <form method="post" action="../controlador/CarritoControlador.php?accion=pagar">
-            <label>Identificación del cliente (opcional): <input type="text" name="cliente_identificacion"></label>
-            <button type="submit" class="btn-primary">Simular pago</button>
-        </form>
+                        <form method="post" action="../controlador/CarritoControlador.php?accion=pagar" novalidate>
+                                <label>Identificación del cliente: <input type="text" name="cliente_identificacion" required placeholder="Cédula o RUC"></label>
+                                <label style="display:block;margin-top:.5rem">Dirección de entrega / evento: <input type="text" name="direccion" required placeholder="Calle, número, barrio"></label>
+                                <label style="display:block;margin-top:.5rem">Teléfono de contacto: <input type="tel" name="telefono" required placeholder="+57 3XX XXX XXXX" pattern="[0-9+\s-]{7,20}"></label>
+                                <div style="display:flex;gap:0.5rem;align-items:center;margin-top:.5rem;flex-wrap:wrap">
+                                    <label>Fecha del servicio: <input type="date" name="fecha" required min="<?php echo date('Y-m-d'); ?>"></label>
+                                    <label>Hora aproximada: <input type="time" name="hora" required></label>
+                                </div>
+                                <div style="margin-top:.6rem">
+                                    <button type="submit" class="btn-primary">Simular pago</button>
+                                </div>
+                        </form>
 
         <p style="margin-top:1rem">
             <a class="btn-danger" href="../controlador/CarritoControlador.php?accion=vaciar">Vaciar carrito</a>

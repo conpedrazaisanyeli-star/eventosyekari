@@ -47,8 +47,9 @@ if (isset($_SESSION['Nombre']) || isset($_SESSION['Apellido'])) {
     <ul class="admin-nav" role="navigation" aria-label="Navegación administrativa">
       <li><a class="<?php echo $page=='admins' ? 'active':''; ?>" href="?page=admins">Administradores</a></li>
       <li><a class="<?php echo $page=='new_admin' ? 'active':''; ?>" href="?page=new_admin">Registrar admin</a></li>
-      <li><a class="<?php echo $page=='clients' ? 'active':''; ?>" href="?page=clients">Clientes</a></li>
+  <li><a class="<?php echo $page=='clients' ? 'active':''; ?>" href="?page=clients">Clientes</a></li>
       <li><a class="<?php echo $page=='new_client' ? 'active':''; ?>" href="?page=new_client">Registrar cliente</a></li>
+  <li><a class="<?php echo $page=='services' ? 'active':''; ?>" href="?page=services">Servicios</a></li>
       <li><a class="<?php echo $page=='orders' ? 'active':''; ?>" href="?page=orders">Órdenes</a></li>
       <li><a class="" href="logout.php">Cerrar sesión</a></li>
     </ul>
@@ -59,9 +60,10 @@ if (isset($_SESSION['Nombre']) || isset($_SESSION['Apellido'])) {
 
     <div class="admin-cards">
       <a class="admin-card card-pedidos" href="?page=orders"><div class="card-icon">📦</div><h3>Pedidos</h3><p>Ver y gestionar pedidos</p></a>
-      <a class="admin-card card-clientes" href="?page=clients"><div class="card-icon">👥</div><h3>Clientes</h3><p>Gestiona la lista de clientes</p></a>
-      <a class="admin-card card-inventario" href="?page=admins"><div class="card-icon">📦</div><h3>Administradores</h3><p>Control de administradores</p></a>
-      <a class="admin-card card-modificar" href="?page=new_admin"><div class="card-icon">✏️</div><h3>Registrar</h3><p>Crear nuevo registro</p></a>
+  <a class="admin-card card-clientes" href="?page=clients"><div class="card-icon">👥</div><h3>Clientes</h3><p>Gestiona la lista de clientes</p></a>
+  <a class="admin-card card-servicios" href="?page=services"><div class="card-icon">🛍️</div><h3>Servicios</h3><p>Agregar / editar servicios</p></a>
+  <a class="admin-card card-inventario" href="?page=admins"><div class="card-icon">📦</div><h3>Administradores</h3><p>Control de administradores</p></a>
+  <a class="admin-card card-modificar" href="?page=new_admin"><div class="card-icon">✏️</div><h3>Registrar</h3><p>Crear nuevo registro</p></a>
       <a class="admin-card card-logout" href="logout.php"><div class="card-icon">⏻</div><h3>Cerrar sesión</h3><p>Salir del panel</p></a>
     </div>
 
@@ -82,6 +84,15 @@ if (isset($_SESSION['Nombre']) || isset($_SESSION['Apellido'])) {
         break;
       case 'orders':
         include_once(__DIR__ . '/admin_parts/list_orders.php');
+        break;
+      case 'services':
+        include_once(__DIR__ . '/admin_parts/list_servicios.php');
+        break;
+      case 'new_service':
+        include_once(__DIR__ . '/admin_parts/new_servicio.php');
+        break;
+      case 'edit_service':
+        include_once(__DIR__ . '/admin_parts/editar_servicio.php');
         break;
       case 'edit_client':
         include_once(__DIR__ . '/admin_parts/editar_cliente.php');

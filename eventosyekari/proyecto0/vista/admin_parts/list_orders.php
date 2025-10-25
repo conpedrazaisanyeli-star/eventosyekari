@@ -16,6 +16,9 @@ try{
                 <h3 id="orden-<?php echo intval($o['id']); ?>">Orden #<?php echo intval($o['id']); ?></h3>
                 <div style="font-weight:700;color:var(--color-blue);">Total: S/ <?php echo number_format($o['total'],2); ?></div>
                 <div style="font-size:0.9rem;color:rgba(255,255,255,0.75);">Creado: <?php echo htmlspecialchars($o['creado_en']); ?></div>
+                <?php if(!empty($o['direccion'])): ?><div style="margin-top:0.35rem;color:rgba(255,255,255,0.85)"><strong>Dirección:</strong> <?php echo htmlspecialchars($o['direccion']); ?></div><?php endif; ?>
+                <?php if(!empty($o['telefono'])): ?><div style="color:rgba(255,255,255,0.85)"><strong>Teléfono:</strong> <?php echo htmlspecialchars($o['telefono']); ?></div><?php endif; ?>
+                <?php if(!empty($o['fecha_evento']) || !empty($o['hora_evento'])): ?><div style="color:rgba(255,255,255,0.82)"><strong>Fecha / Hora:</strong> <?php echo htmlspecialchars(($o['fecha_evento'] ?? '-') . ' ' . ($o['hora_evento'] ?? '')); ?></div><?php endif; ?>
             </header>
             <section style="margin-top:0.6rem;">
                 <p><strong>Cliente:</strong> <?php echo htmlspecialchars($o['cliente_identificacion']); ?></p>

@@ -828,6 +828,53 @@ body {
   border: 5px solid var(--color-cyan);
 }
 
+/* Estilos específicos para el formulario de pago dentro del carrito */
+.cart-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.cart-wrapper form label {
+  font-weight: 700;
+  color: #0b2433; /* texto oscuro sobre fondo claro */
+  display: block;
+  font-size: 0.95rem;
+}
+
+.cart-wrapper input[type="text"],
+.cart-wrapper input[type="tel"],
+.cart-wrapper input[type="email"],
+.cart-wrapper input[type="date"],
+.cart-wrapper input[type="time"] {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 2px solid rgba(6,22,28,0.06);
+  background: #fff;
+  color: #0b2433;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(2,18,24,0.04);
+}
+
+.cart-wrapper input::placeholder { color: rgba(11,36,51,0.45); font-weight:500 }
+
+.cart-wrapper .form-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.cart-wrapper .form-row label { flex: 1; }
+
+.cart-wrapper .btn-primary { padding: 0.7rem 1.1rem; font-size: 1rem; border-radius: 12px; }
+
+@media (max-width: 680px) {
+  .cart-wrapper .form-row { flex-direction: column; }
+  .cart-wrapper input[type="text"], .cart-wrapper input[type="tel"] { font-size: 0.95rem; }
+}
+
 .cart-table {
   width: 100%;
   border-collapse: collapse;
@@ -1102,6 +1149,97 @@ body {
 .admin-panel-large {
   margin-top: 1rem;
 }
+
+/* Estilos para gestión de servicios en el panel admin */
+#admin-content .services-table, #admin-content table.services-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#admin-content .services-table th, #admin-content .services-table td {
+  padding: 0.85rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  background: rgba(0,0,0,0.02);
+}
+
+#admin-content .services-table thead th {
+  background: linear-gradient(90deg, rgba(0,0,0,0.12), rgba(255,255,255,0.02));
+  color: #fff;
+  font-weight: 800;
+}
+
+#admin-content .service-thumb img {
+  width: 120px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.04);
+}
+
+#admin-content .admin-actions { display:flex; gap:0.6rem; align-items:center; }
+
+/* Formularios de servicio (crear/editar) dentro del panel */
+#admin-content form { max-width:900px; }
+#admin-content form label { display:block; margin-bottom:0.6rem; color:#fff; font-weight:700; }
+#admin-content form input[type="text"],
+#admin-content form input[type="number"],
+#admin-content form input[type="file"],
+#admin-content form textarea {
+  width:100%; padding:0.65rem 0.85rem; border-radius:8px; border:2px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.02); color:#fff; margin-bottom:0.6rem;
+}
+
+#admin-content form input[type="file"] { padding:0.5rem; background:transparent; }
+
+#admin-content .admin-btn { font-size:0.95rem; padding:0.6rem 0.9rem; }
+
+/* Acciones de tabla: botones más compactos */
+#admin-content .admin-actions .admin-btn-primary, #admin-content .admin-actions .admin-btn-danger {
+  padding:0.45rem 0.7rem; font-size:0.88rem;
+}
+
+/* Mensaje de éxito/error dentro del admin para servicios */
+.admin-message.success { background: linear-gradient(90deg, rgba(102,255,102,0.95), rgba(51,204,102,0.95)); color:#022; }
+.admin-message.error { background: linear-gradient(90deg, rgba(255,102,102,0.95), rgba(255,51,51,0.95)); color:#fff; }
+
+/* Estilos para file input personalizado en admin */
+.file-input-wrapper {
+  display:flex;
+  gap:0.6rem;
+  align-items:center;
+  margin-bottom:0.6rem;
+}
+.file-input-button {
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  padding:0.6rem 0.9rem;
+  background: linear-gradient(180deg, var(--color-orange) 0%, var(--color-orange-bright) 100%);
+  color:#111;
+  font-weight:800;
+  border-radius:10px;
+  cursor:pointer;
+  border:3px solid var(--color-yellow);
+  box-shadow:0 8px 30px rgba(255,102,0,0.15);
+}
+.file-input-button:hover{ transform:translateY(-3px); }
+.file-input-button input[type="file"]{ display:none; }
+.file-input-filename{
+  color: rgba(255,255,255,0.9);
+  font-weight:700;
+  background: rgba(0,0,0,0.04);
+  padding:0.45rem 0.6rem;
+  border-radius:8px;
+  font-size:0.95rem;
+  max-width:420px;
+  overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+}
+
 
 /* Fin estilos admin */
 
