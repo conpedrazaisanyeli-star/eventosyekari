@@ -27,7 +27,10 @@ foreach($carrito as $it) $total += $it['precio'] * $it['cantidad'];
 
     <?php if(count($carrito) == 0): ?>
         <div class="more-services" style="text-align:center;margin-top:20px;">
+            <div class="footer-section">
                 <p>El carrito está vacío. </p>
+            </div>
+                
                  <a href="/eventosyekari/eventosyekari/proyecto0/vista/catalogo.php" class="cta">Ver servicios</a>
             </div>
     <?php else: ?>
