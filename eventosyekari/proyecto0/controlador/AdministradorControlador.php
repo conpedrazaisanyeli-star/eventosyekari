@@ -54,6 +54,27 @@ if (isset($_POST["Identificacion"]) and !isset ($_POST["Accion"])){
     $CorreoElectronico = $_POST["CorreoElectronico"];
     $Clave = $_POST["Clave"];
 
+    // DEBUG: registrar los datos recibidos temporalmente para diagnosticar por qué
+    // se están guardando números en lugar del nombre en algunos entornos.
+    // El archivo se crea en la misma carpeta controlador; eliminar después de usar.
+    try {
+        $debugPath = __DIR__ . '/admin_create_debug.log';
+        $log = date('Y-m-d H:i:s') . " " . json_encode(array(
+            'Identificacion' => $Identificacion,
+            'Nombre' => $Nombre,
+            'Apellido' => $Apellido,
+            'CargaEmpresarial' => $CargaEmpresarial,
+            'Direccion' => $Direccion,
+            'Celular' => $Celular,
+            'FechaNacimiento' => $FechaNacimiento,
+            'CorreoElectronico' => $CorreoElectronico,
+            'Clave' => strlen($Clave) > 0 ? '***' : ''
+        ), JSON_UNESCAPED_UNICODE) . PHP_EOL;
+        file_put_contents($debugPath, $log, FILE_APPEND | LOCK_EX);
+    } catch (Exception $e) {
+        // no bloquear ejecución si falla el log
+    }
+
     $AdministradorControlador = new AdministradorControlador();
     try {
         $Administradores = $AdministradorControlador->crearAdministrador($Identificacion, $Nombre, $Apellido, $CargaEmpresarial, $Direccion, $Celular, $FechaNacimiento, $CorreoElectronico, $Clave);
