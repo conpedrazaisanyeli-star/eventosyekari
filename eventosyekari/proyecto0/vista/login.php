@@ -46,7 +46,11 @@ if(isset($_SESSION["Identificacion"])){
                     <button class="btn btn-primary" type="submit">Iniciar sesión</button>
                 </div>
 
-                <small class="helper">¿No tienes cuenta? Contáctanos para crear una.</small>
+                <div class="form-row" style="margin-top:0.5rem;gap:0.6rem;">
+                    <a href="/eventosyekari/eventosyekari/proyecto0/vista/registro_cliente.php" class="btn btn-primary" style="display:inline-block;text-align:center;">Registrarse como cliente</a>
+                </div>
+
+                <small class="helper">¿No tienes cuenta? También puedes registrarte como cliente desde el botón de arriba.</small>
             </form>
         </div>
     </div>

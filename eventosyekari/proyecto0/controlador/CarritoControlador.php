@@ -32,7 +32,7 @@ switch($accion){
                 }
             }
         }
-        header('Location: ../vista/catalogo.php?m=agregado');
+        header('Location: ../vista/catalogo.php');
         exit;
 
     case 'eliminar':
@@ -46,12 +46,12 @@ switch($accion){
             }
             $_SESSION['carrito'] = array_values($_SESSION['carrito']);
         }
-        header('Location: ../vista/Carrito_listar.php?m=eliminado');
+        header('Location: ../vista/Carrito_listar.php');
         exit;
 
     case 'vaciar':
         unset($_SESSION['carrito']);
-        header('Location: ../vista/Carrito_listar.php?m=vaciar');
+        header('Location: ../vista/Carrito_listar.php');
         exit;
 
     case 'pagar':
@@ -60,13 +60,23 @@ switch($accion){
             exit;
         }
         // Validación server-side: todos los campos del formulario deben estar presentes
-        $cliente_identificacion = isset($_POST['cliente_identificacion']) ? trim($_POST['cliente_identificacion']) : '';
+        // If client is logged in, enforce using session identification
+        if (isset($_SESSION['ClienteIdentificacion']) && !empty($_SESSION['ClienteIdentificacion'])) {
+            $cliente_identificacion = trim($_SESSION['ClienteIdentificacion']);
+        } else {
+            $cliente_identificacion = isset($_POST['cliente_identificacion']) ? trim($_POST['cliente_identificacion']) : '';
+        }
         $direccion = isset($_POST['direccion']) ? trim($_POST['direccion']) : '';
         $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
         $fecha_evento = isset($_POST['fecha']) ? trim($_POST['fecha']) : '';
         $hora_evento = isset($_POST['hora']) ? trim($_POST['hora']) : '';
+        // If no client id available, require login
+        if ($cliente_identificacion === '') {
+            header('Location: ../vista/login.php?m=' . urlencode('Debes iniciar sesión para pagar'));
+            exit;
+        }
 
-        if ($cliente_identificacion === '' || $direccion === '' || $telefono === '' || $fecha_evento === '' || $hora_evento === '') {
+        if ($direccion === '' || $telefono === '' || $fecha_evento === '' || $hora_evento === '') {
             // Falta algún campo obligatorio: redirigir y mostrar mensaje
             header('Location: ../vista/Carrito_listar.php?m=Por+favor+complete+todos+los+campos');
             exit;

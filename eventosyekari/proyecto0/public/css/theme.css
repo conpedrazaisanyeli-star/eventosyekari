@@ -928,6 +928,123 @@ body {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.12);
 }
 
+/* Auth prompt shown when user is not logged in and tries to checkout */
+.auth-prompt {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(180deg, #ffffff, #fbfbfd);
+  border: 2px solid rgba(6,22,28,0.06);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(2,18,24,0.06);
+  margin-top: 1rem;
+}
+
+.auth-prompt .auth-icon{
+  width:64px;
+  height:64px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg, var(--color-orange), var(--color-orange-bright));
+  box-shadow: 0 8px 20px rgba(255,102,0,0.12);
+  flex:0 0 64px;
+}
+
+.auth-prompt .auth-text h3{
+  margin:0 0 0.25rem 0;
+  font-size:1.15rem;
+  color: #0b2433;
+  font-weight: 900;
+}
+
+.auth-prompt .auth-text p{
+  margin:0;
+  color: #214a54;
+  opacity:0.95;
+  font-size:0.98rem;
+}
+
+.auth-prompt .auth-actions{
+  margin-top:0.5rem;
+  display:flex;
+  gap:0.6rem;
+}
+
+.auth-prompt .auth-actions .btn-primary{ padding:0.55rem 0.9rem; }
+.auth-prompt .auth-actions .btn-login{ padding:0.55rem 0.9rem; }
+
+@media (max-width:680px){
+  .auth-prompt{ flex-direction:column; align-items:flex-start; }
+  .auth-prompt .auth-icon{ margin-bottom:0.4rem; }
+}
+
+/* Make auth prompt buttons small and unobtrusive */
+.auth-prompt{
+  gap:0.75rem;
+  padding:0.75rem 1rem;
+}
+.auth-prompt .auth-icon{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.06);
+  box-shadow: none;
+}
+.auth-prompt .auth-text h3{ font-size:1rem; margin-bottom:0.2rem; }
+.auth-prompt .auth-text p{ font-size:0.95rem; color: rgba(11,36,51,0.72); margin:0; }
+.auth-prompt .auth-actions{ margin-top:0.4rem; display:flex; gap:0.5rem; }
+
+/* Override heavy button styles inside the auth prompt to make them subtle */
+.auth-prompt .auth-actions a{
+  padding:0.32rem 0.6rem !important;
+  font-size:0.95rem !important;
+  border-radius:8px !important;
+  box-shadow:none !important;
+  border:2px solid rgba(11,36,51,0.06) !important;
+  background: rgba(11,36,51,0.03) !important;
+  color: #0b2433 !important;
+  font-weight:600 !important;
+  text-decoration:none !important;
+}
+
+/* Make "Registrarse" slightly more accentuated but still subtle */
+.auth-prompt .auth-actions a.btn-login{
+  background: transparent !important;
+  border-color: rgba(255,102,0,0.12) !important;
+  color: var(--color-orange) !important;
+}
+
+/* Reduce emphasis of primary button too */
+.auth-prompt .auth-actions a.btn-primary{
+  background: transparent !important;
+  border-color: rgba(12,207,240,0.12) !important;
+  color: #0b2433 !important;
+}
+
+/* New subtle link style used inside auth-prompt to avoid heavy .btn styles */
+.auth-link{
+  display:inline-block;
+  padding:0;
+  margin:0;
+  color: rgba(11,36,51,0.85);
+  text-decoration: underline;
+  font-weight:700;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.auth-link.auth-register{
+  color: var(--color-orange);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255,102,0,0.14);
+  padding-bottom:2px;
+}
+.auth-link:hover{ opacity:0.95; transform:none; }
+
 /* Responsive tweaks */
 @media (max-width: 768px) {
   .catalogo { grid-template-columns: 1fr; }

@@ -23,7 +23,15 @@ $show_cart = (strpos($request_uri, 'catalogo') !== false) || (strpos($request_ur
         <?php if($show_cart): ?>
             <a href="/eventosyekari/eventosyekari/proyecto0/controlador/CarritoControlador.php?accion=listar">Carrito (<?php echo $cart_count; ?>)</a>
         <?php endif; ?>
-        <a class="btn-login" href="/eventosyekari/eventosyekari/proyecto0/vista/login.php">Iniciar sesión</a>
+        <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+            <a href="/eventosyekari/eventosyekari/proyecto0/vista/dashboard_admin.php">Panel admin</a>
+            <a href="/eventosyekari/eventosyekari/proyecto0/vista/logout.php">Cerrar sesión</a>
+        <?php elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'cliente'): ?>
+            <a href="/eventosyekari/eventosyekari/proyecto0/vista/cliente_panel.php">Mi cuenta</a>
+            <a href="/eventosyekari/eventosyekari/proyecto0/vista/logout.php">Cerrar sesión</a>
+        <?php else: ?>
+            <a class="btn-login" href="/eventosyekari/eventosyekari/proyecto0/vista/login.php">Iniciar sesión</a>
+        <?php endif; ?>
     </nav>
 
     <!-- Bloque de marca: logo y nombre de la empresa -->
